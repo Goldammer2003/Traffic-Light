@@ -1,28 +1,18 @@
-import React, { useState } from "react";
-import "../../styles/index.css";
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, {useState} from "react";
 
-//create your first component
 const Home = () => {
-	const [selectColor, setSelectedColor] = useState("red");
-	//first step we need
+	
+	//We create our hook 
+	const [selectedColor, setSelectedColor] = useState("red");
 
 	return (
-		<div className="text-center wholetrafficlight">
-			<div className="rounded-circle bg-secondary rounded-5 circle1">
-				Hello World
+		<div className="text-center">
+			<div className="pole"></div>
+			<div className="traffic-light">
+				<div onClick={()=>setSelectedColor("red")} className={"light red" +(selectedColor === "red" ? " glow" : "")}></div>
+				<div onClick={()=>setSelectedColor("yellow")} className={"light yellow" +(selectedColor === "yellow" ? " glow" : "")}></div>
+				<div onClick={()=>setSelectedColor("green")} className={"light green" +(selectedColor === "green" ? " glow" : "")}></div>
 			</div>
-
-			<div
-				onClick="setColor"
-				className="rounded-circle bg-secondary rounded-5 circle1"
-			></div>
-			
-			<div
-				onClick="setColor"
-				className="rounded-circle bg-secondary rounded-5 circle1"
-			></div>
 		</div>
 	);
 };
